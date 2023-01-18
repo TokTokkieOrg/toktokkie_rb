@@ -49,7 +49,6 @@ RSpec.describe Toktokkie do
       after(:each) { Toktokkie.reset_configuration }
 
       it "does not raise any exceptions" do
-        p Toktokkie.configuration
         expect{ client }.to_not raise_error
       end
     end

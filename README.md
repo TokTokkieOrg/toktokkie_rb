@@ -1,24 +1,44 @@
 # Toktokkie
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/toktokkie`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add toktokkie_rb
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install toktokkie_rb
+
+## Configuration
+```ruby
+Toktokkie.configure do |config|
+  config.key = "[YOUR_API_KEY]"
+  config.secret = "[YOUR_API_SECRET]"
+end
+```
 
 ## Usage
+```ruby
+client = Toktokkie.client
+client.create_event(
+  # required
+  payload: {
+    title: "New commenct",
+    body: "Charles commented on your blog post!",
+    action: {
+      "text": "View comment",
+      "url": "https://www.example.com/blog/1/comments#comment-2"
+    }
+  },
+  # required
+  recipients_payload: [
+    { external_id: "users-12345" }
+  ],
+  # optional
+  tags: ["Inbox A", "Inbox B"]
+)
+```
 
-TODO: Write usage instructions here
 
 ## Development
 

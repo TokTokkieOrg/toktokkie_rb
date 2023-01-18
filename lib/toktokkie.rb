@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require "faraday"
+
 require_relative "toktokkie/version"
 require_relative "toktokkie/configuration"
+require_relative "toktokkie/client"
 
 module Toktokkie
   ConfigurationError = Class.new(StandardError)
@@ -17,10 +20,12 @@ module Toktokkie
 
     def client
       @client ||= begin
-        puts "Usable?: #{configuration.usable?}"
-        unless configuration.usable?
-          raise ConfigurationError, "Missing key and/or secret"
-        end
+        raise ConfigurationError, "Missing configuration information" unless configuration.usable?
+        Toktokkie::Client.new(
+          key: configuration.key,
+          secret: configuration.secret,
+          url: configuration.url
+        )
       end
     end
 
