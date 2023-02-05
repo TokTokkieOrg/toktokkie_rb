@@ -10,7 +10,6 @@ module Toktokkie
 
     def usable?
       %i[key secret url].none? do |setting|
-        puts "setting #{setting} #{send(setting)}"
         blank?(send(setting))
       end
     end

@@ -3,11 +3,11 @@
 ## Installation
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add toktokkie_rb
+    $ bundle add toktokkie
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install toktokkie_rb
+    $ gem install toktokkie
 
 ## Configuration
 ```ruby
@@ -23,7 +23,7 @@ client = Toktokkie.client
 client.create_event(
   # required
   payload: {
-    title: "New commenct",
+    title: "New comment",
     body: "Charles commented on your blog post!",
     action: {
       "text": "View comment",
@@ -48,7 +48,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/toktokkie.
+Bug reports and pull requests are welcome on GitHub at https://github.com/TokTokkieOrg/toktokkie_rb.
 
 ## License
 
